@@ -14,10 +14,11 @@ Integer min-cost flow, with a priced unmet-demand edge per destination. The pena
 Limits: 12 supplies, 20 demands, 120 unique routes, 10,000 units per location, route costs 0–10,000, priority 1–5. Nonnegative integer inputs only. These bounds keep the scalar objective inside JavaScript safe integers. One consistent water quantity unit must be used across the network. Costs are relative per-unit costs, not promised currency expenditure. No real deployment validation.
 
 ## Verification
-160 independent exhaustive-oracle small networks; sample, zero supply/demand and invalid input cases. The sample delivers110/135units; weighted unmet25 vs85 from cheapest-route-first; cost170 vs145. These are synthetic test results, not real community savings. The downloaded JSON export was inspected, including all6routes and input/baseline. See ../VERIFICATION.md for browser coverage.
+160 independent exhaustive-oracle small networks; sample, zero supply/demand and invalid input cases. The sample delivers110/135units; weighted unmet25 vs85 from cheapest-route-first; cost170 vs145. These are synthetic test results, not real community savings. The downloaded JSON export was inspected, including all6routes and input/baseline. See VERIFICATION.md for browser coverage.
 
 ## AI disclosure and authorship
 OpenAI Codex selected the implementation approach and generated the source, tests, UI and documentation in this chat, under Aditya Mittal’s direction. Do not describe the code as independently human-written. Runtime contains deterministic optimization, no model, no hidden LLM or paid API. AI coding assistance is permitted by the event. No prior competition application source was reused; standard algorithm knowledge and third-party runtime tools were used.
 
 ## Next development
 Validate input units, priorities and actual constraints with consenting community planners; then investigate uncertainty scenarios, importable network editing and accessible first-use guidance. No user interviews, field pilot or impact measurements have been performed.
+

@@ -4,6 +4,7 @@ const r=solve(sample);assert.equal(r.served,110);assert.equal(r.weightedUnmet,25
 assert.throws(()=>validate({...sample,routes:[...sample.routes,sample.routes[0]]}));assert.throws(()=>validate({...sample,supplies:[{id:'x',name:'X',units:NaN}]}));
 const empty=structuredClone(sample);empty.supplies.forEach(s=>s.units=0);assert.equal(solve(empty).served,0);
 const zero=structuredClone(sample);zero.demands.forEach(s=>s.units=0);assert.equal(solve(zero).objective,0);
+const bounded={supplies:[{id:'s',name:'Supply',units:0}],demands:Array.from({length:20},(_,i)=>({id:'d'+i,name:'Demand '+i,units:10000,priority:5})),routes:[{from:'s',to:'d0',capacity:0,cost:10000}]};assert.ok(Number.isSafeInteger(solve(bounded).objective));assert.throws(()=>validate({...bounded,supplies:[{id:'s',name:'Supply',units:10001}]}));
 // Independent exhaustive oracle enumerates every feasible route allocation.
 let seed=17421;const rand=n=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed%n;};
 for(let k=0;k<160;k++){
